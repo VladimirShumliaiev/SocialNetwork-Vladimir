@@ -1,0 +1,30 @@
+.item {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+
+    background: darkorchid;
+    color: white;
+    /*padding: 10px;*/
+}
+.oneBlock {
+    background: maroon;
+    padding: 10px;
+}
+
+.twoBlock {
+    background: #1b5814;
+    padding: 10px;
+}
+
+.threeBlock {
+    background: lime;
+    color: #000007;
+    padding: 10px;
+}
+
+.forBlock {
+    background: orange;
+    color: #0a0203;
+    padding: 10px;
+}
+

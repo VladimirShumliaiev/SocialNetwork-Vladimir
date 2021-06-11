@@ -1,0 +1,25 @@
+.item {
+    grid-area: C;
+    background: blue;
+}
+
+.item img {
+    height: 400px;
+    width: 1000px;
+}
+
+.posts img {
+    width: 50px;
+    height: 50px;
+    /*border-radius: 25px;*/
+}
+
+.posts {
+    padding: 5px;
+    color: yellow;
+}
+
+.myPost img {
+    width: 50px;
+    height: 50px;
+}
