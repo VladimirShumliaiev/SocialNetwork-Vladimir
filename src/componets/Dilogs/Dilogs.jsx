@@ -2,6 +2,7 @@ import React from "react";
 import style from './Dilogs.module.css';
 import UserDilogs from "./Dailog Components/UserDilogs/UserDilogs";
 import SmsDilogs from "./Dailog Components/Sms Dilogs/SmsDilogs";
+import ButtonTexterea from "../Profile/Button and Texterea/Button-Texterea";
 
 const Dilogs = (props) => {
     let newUserDilogsObject = props.dilogsState.massDilogsUsers.map((el) => {
@@ -17,12 +18,7 @@ const Dilogs = (props) => {
         )
     })
 
-    let newAddSms = React.createRef();
 
-    let addSms = () => {
-        let text = newAddSms.current.value;
-        alert(text);
-    }
 
     return (
         <div className={style.item}>
@@ -32,8 +28,7 @@ const Dilogs = (props) => {
 
             <div className={style.smsDilogs}>
                 {newSmsDilogsObject}
-                <textarea ref={newAddSms}></textarea>
-                <button onClick={addSms}>add sms</button>
+                <ButtonTexterea />
             </div>
         </div>
     )
