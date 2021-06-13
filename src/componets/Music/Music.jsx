@@ -5,7 +5,7 @@ import newTracsObject from "./objctMusic/Tracks/newTracsObject";
 import newArtistObjectRight from "./objctMusic/Artist/newArtistObjectRight";
 import newTracksObjectRight from "./objctMusic/Tracks/newTracksObjectRight";
 
-const Music = () => {
+const Music = (props) => {
     return (
         <div className={style.item}>
             <div className={style.oneBlock}>

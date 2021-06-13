@@ -16,6 +16,14 @@ const Dilogs = (props) => {
             <SmsDilogs sms={el.smsText}/>
         )
     })
+
+    let newAddSms = React.createRef();
+
+    let addSms = () => {
+        let text = newAddSms.current.value;
+        alert(text);
+    }
+
     return (
         <div className={style.item}>
             <div className={style.userDilogs}>
@@ -24,6 +32,8 @@ const Dilogs = (props) => {
 
             <div className={style.smsDilogs}>
                 {newSmsDilogsObject}
+                <textarea ref={newAddSms}></textarea>
+                <button onClick={addSms}>add sms</button>
             </div>
         </div>
     )

@@ -1,13 +1,17 @@
-import React from "react";
-
-const Button = () => {
-    return (
-        <div>
-        <button>Okey</button>
-        <button>Cansel</button>
-          <pre></pre>
-        </div>
-    )
-}
-
-export default Button;
+// import React from "react";
+//
+// const Button = (props) => {
+//
+//
+//
+//     }
+//
+//     return (
+//         <div>
+//
+//             <pre></pre>
+//          </div>
+//     )
+// }
+//
+// export default Button;
