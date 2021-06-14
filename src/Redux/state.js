@@ -1,4 +1,4 @@
-import React from "react";
+import {rerenderEntireTree} from "../rerenderEntireTree";
 
 const state = {
 
@@ -25,15 +25,15 @@ const state = {
 
     ],
 
-    massDilogs: {
-        massDilogsUsers: [
+    arrDilogs: {
+        arrDilogsUsers: [
             {id: 1, name: 'Vladimir'},
             {id: 2, name: 'Irina'},
             {id: 3, name: 'Alina'},
             {id: 4, name: 'Vitaliy'},
             {id: 5, name: 'Mariya'}
         ],
-        massDilogsSms: [
+        arrDilogsSms: [
             {smsText: 'Hello Vladimir'},
             {smsText: 'Hello Irina'},
             {smsText: 'Alina'},
@@ -42,7 +42,7 @@ const state = {
         ],
     },
 
-    massFriends: [
+    arrFriends: [
         {
             foto: 'https://www.meme-arsenal.com/memes/807f7063ae47455ef78d5a0743509576.jpg',
             name: 'Oleg',
@@ -57,6 +57,26 @@ const state = {
         },
     ],
 
+}
+
+export const addUser = (userSms) => {
+
+    let newUser = {
+        foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
+        sms: userSms,
+        like: 43
+
+    };
+    state.massProfile.push(newUser);
+    rerenderEntireTree(state)
+}
+
+export const addSmsDilogs = (sms) => {
+    let newSms = {
+        smsText: sms,
+    }
+    state.arrDilogs.arrDilogsSms.push(newSms);
+    rerenderEntireTree(state)
 }
 
 export default state;

@@ -1,7 +1,5 @@
 import React from "react";
 import style from './MyPost.module.css'
-// import TeXterea from "../TextArea/TeXterea";
-// import Button from "../Button/Button";
 import Post from "../Post/Post";
 import MyAva from "../MyAva/MyAva";
 
@@ -21,7 +19,8 @@ const MyPost = (props) => {
 
     let addPost = () => {
         let text = newAddPost.current.value;
-        alert(text);
+        props.addUser(text);
+        newAddPost.current.value = '';
     }
 
     return (
