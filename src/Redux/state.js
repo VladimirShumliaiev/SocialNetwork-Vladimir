@@ -25,6 +25,15 @@ const state = {
 
     ],
 
+    navBarList: [
+        {id: '/profile',name: 'Profile'},
+        {id: '/dilogs',name: 'Messages'},
+        {id: '/music',name: 'Music'},
+        {id: '/news',name: 'News'},
+        {id: '/settings',name: <h3>Settings</h3>},
+        {id: '/friends',name: <div><h3>Friends</h3></div>},
+    ],
+
     arrDilogs: {
         arrDilogsUsers: [
             {id: 1, name: 'Vladimir'},

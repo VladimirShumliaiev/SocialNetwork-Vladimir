@@ -1,0 +1,12 @@
+.item {
+    display: grid;
+    grid-template-columns: 2fr;
+}
+
+.foto div{
+    display: inline;
+}
+
+.name div{
+    display: inline;
+}
