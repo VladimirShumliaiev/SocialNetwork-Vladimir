@@ -1,27 +1,27 @@
 import React from "react";
 import style from './Music.module.css'
-import newArtistObject from "./objctMusic/Artist/newArtistObject";
-import newTracsObject from "./objctMusic/Tracks/newTracsObject";
-import newArtistObjectRight from "./objctMusic/Artist/newArtistObjectRight";
-import newTracksObjectRight from "./objctMusic/Tracks/newTracksObjectRight";
+import newArtistArray from "./arrayMusic/Artist/newArtistArray";
+import newTracsArray from "./arrayMusic/Tracks/newTracsArray";
+import newArtistArrayRight from "./arrayMusic/Artist/newArtistArrayRight";
+import newTracksArrayRight from "./arrayMusic/Tracks/newTracksArrayRight";
 
 const Music = (props) => {
     return (
         <div className={style.item}>
             <div className={style.oneBlock}>
-                {newArtistObject}
+                {newArtistArray}
             </div>
 
             <div className={style.twoBlock}>
-                {newTracsObject}
+                {newTracsArray}
             </div>
 
             <div className={style.threeBlock}>
-                {newArtistObjectRight}
+                {newArtistArrayRight}
             </div>
 
             <div className={style.forBlock}>
-                {newTracksObjectRight}
+                {newTracksArrayRight}
             </div>
 
         </div>

@@ -18,7 +18,7 @@ const NavBar = (props) => {
                 <br/>
             </div>
             <div className={style.siteBar}>
-                <SiteBar siteBarState={props.navBarState} />
+                <SiteBar state={props.state} />
             </div>
         </div>
     )

@@ -1,12 +1,12 @@
 import React from "react";
-import artistsObject from "./artistObjct";
 import ArtistAlert from "../../MusicComponents/ArtistAlert";
+import artistsArray from "./artistArray";
 
 
-let newArtistObjectRight = artistsObject.map((element) => {
+let newArtistArrayRight = artistsArray.map((element) => {
     return (
         <ArtistAlert name={element.artist} />
     )
 })
 
-export default newArtistObjectRight;
+export default newArtistArrayRight;

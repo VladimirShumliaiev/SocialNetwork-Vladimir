@@ -9,7 +9,7 @@ export let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App appState={state} addUser={addUser} addSmsDilogs={addSmsDilogs}/>
+                <App state={state} addUser={addUser} addSmsDilogs={addSmsDilogs}/>
             </React.StrictMode>,
         </BrowserRouter>,
         document.getElementById('root')

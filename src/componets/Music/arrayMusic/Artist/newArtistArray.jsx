@@ -1,11 +1,11 @@
 import React from "react";
-import artistsObject from "./artistObjct";
 import MusicArtist from "../../MusicComponents/ArtistAlert";
+import artistsArray from "./artistArray";
 
-const newArtistObject = artistsObject.map((artistsElement) => {
+const newArtistArray = artistsArray.map((artistsElement) => {
     return (
        <MusicArtist name={artistsElement.name}/>
     )
 })
 
-export default newArtistObject;
+export default newArtistArray;

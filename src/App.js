@@ -14,28 +14,20 @@ const App = (props) => {
     return (
         <header className={'App'}>
             <Header/>
-            {/*---------------------NavBar-----------------*/}
             <NavBar
-                navBarState={props.appState.arrFriends}
-                navBarList={props.appState.navBarList}
-            />
-            {/*---------------------Profile----------------------*/}
+                state={props.state.arrFriends}
+                navBarList={props.state.navBarList}/>
             <div>
                 <Route path={'/profile'} render={() =>
-                           <Profile
-                               profileState={props.appState.massProfile}
-                               addUser={props.addUser}
-                           />
-                           }/>
-                 {/*<--------------Dilogs------------------*/}
-
+                    <Profile
+                        state={props.state.arrProfile}
+                        addUser={props.addUser}/>
+                }/>
                 <Route path={'/dilogs'} render={() =>
                     <Dilogs
-                        dilogsState={props.appState.arrDilogs}
-                        addSmsDilogs={props.addSmsDilogs}
-                    />
+                        state={props.state.arrDilogs}
+                        addSmsDilogs={props.addSmsDilogs}/>
                 }/>
-
                 <Route path={'/music'} render={Music}/>
                 <Route path={'/news'} render={News}/>
                 <Route path={'/settings'} render={Settings}/>

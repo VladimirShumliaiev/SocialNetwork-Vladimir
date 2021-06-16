@@ -1,11 +1,11 @@
 import React from "react";
-import tracksObject from "./tracksObject";
+import tracksArray from "./tracksArray";
 import Tracks from "../../MusicComponents/Tracks/Tracks";
 
-let newTracsObject = tracksObject.map((elements) => {
+let newTracsArray = tracksArray.map((elements) => {
     return (
         <Tracks tracks={elements.tracks}/>
     )
 })
 
-export default newTracsObject;
+export default newTracsArray;

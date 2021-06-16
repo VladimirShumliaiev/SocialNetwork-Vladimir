@@ -1,6 +1,6 @@
 import React from "react";
 
-let artistsObject = [
+let artistsArray = [
 
 
     {name: 'Ariya'},
@@ -17,4 +17,4 @@ let artistsObject = [
 ]
 
 
-export default artistsObject;
+export default artistsArray;

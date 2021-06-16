@@ -2,7 +2,7 @@ import {rerenderEntireTree} from "../rerenderEntireTree";
 
 const state = {
 
-    massProfile: [
+    arrProfile: [
 
         {
             foto: 'https://ic.pics.livejournal.com/bigra/74120222/428910/428910_600.jpg',
@@ -76,7 +76,7 @@ export const addUser = (userSms) => {
         like: 43
 
     };
-    state.massProfile.push(newUser);
+    state.arrProfile.push(newUser);
     rerenderEntireTree(state)
 }
 

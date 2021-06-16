@@ -4,7 +4,7 @@ import Legioners from "./army/Legioners/Legioners";
 import {BrowserRouter, Route} from "react-router-dom";
 import NewsRome from "./army/NewsRome/NewsRome";
 import Ships from "./army/Ships/Ships";
-import Connica from "./army/Connica/Connica";
+import Cavalery from "./army/Cavalery/Cavalery";
 import Army from "./army/Army";
 import AvaNews from "./ComponentsNews/AvaNews/AvaNews";
 import NavBarNews from "./ComponentsNews/NavBarNews/NavBarNews";
@@ -21,7 +21,7 @@ const News = () => {
                 <div className={style.newsCont}>
                     {/*<AvaNews />*/}
                     <Route path={'/newsRome'} component={NewsRome}/>
-                    <Route path={'/connica'} component={Connica}/>
+                    <Route path={'/connica'} component={Cavalery}/>
                     <Route path={'/ships'} component={Ships}/>
                     <Route path={'/legioners'} component={Legioners}/>
                     {/*<NavBarNews id={'/newsRome'} name={'NewsRome'}/>*/}

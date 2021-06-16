@@ -10,7 +10,7 @@ const Profile = (props) => {
             <Ava/>
             <div className={style.posts}>
                 <div>
-                    <MyPost myPostsState={props.profileState} addUser={props.addUser}/>
+                    <MyPost state={props.state} addUser={props.addUser}/>
                 </div>
             </div>
         </div>

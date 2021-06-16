@@ -1,7 +1,7 @@
 import React from "react";
-import style from './Connica.module.css';
+import style from './Cavalery.module.css';
 
-const Connica = (props) => {
+const Cavalery = (props) => {
     return (
         <div className={style.item}>
             Cavalery
@@ -10,4 +10,4 @@ const Connica = (props) => {
     )
 }
 
-export default Connica;
+export default Cavalery;

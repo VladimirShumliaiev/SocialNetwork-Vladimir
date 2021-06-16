@@ -1,6 +1,6 @@
 // import React from "react";
 
-let tracksObject = [
+let tracksArray = [
     {tracks: 'Беспечный Ангел'},
     {tracks: 'Палача невеста'},
     {tracks: 'Как на войне'},
@@ -12,4 +12,4 @@ let tracksObject = [
     {tracksRight: 'Полковник' },
 ]
 
-export default tracksObject;
+export default tracksArray;

@@ -7,7 +7,7 @@ import MyAva from "../MyAva/MyAva";
 const MyPost = (props) => {
 
 
-    let newMassivProfile = props.myPostsState.map((el) => {
+    let newArrProfile = props.state.map((el) => {
         return (
             <div>
                 <Post foto={el.foto} sms={el.sms} like={el.like}/>
@@ -33,7 +33,7 @@ const MyPost = (props) => {
                 <button onClick={addPost}>add Post</button>
             </div>
             <div>
-                {newMassivProfile}
+                {newArrProfile}
             </div>
         </div>
     )

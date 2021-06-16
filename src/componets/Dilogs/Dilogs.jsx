@@ -5,14 +5,14 @@ import SmsDilogs from "./Dailog Components/Sms Dilogs/SmsDilogs";
 import ButtonTexterea from "../Profile/Button and Texterea/Button-Texterea";
 
 const Dilogs = (props) => {
-    let newUserDilogsObject = props.dilogsState.arrDilogsUsers.map((el) => {
+    let newUserDilogsObject = props.state.arrDilogsUsers.map((el) => {
             return (
                 <UserDilogs id={el.id} name={el.name}/>
             )
         }
     )
 
-    let newSmsDilogsObject = props.dilogsState.arrDilogsSms.map((el) => {
+    let newSmsDilogsObject = props.state.arrDilogsSms.map((el) => {
         return (
             <SmsDilogs sms={el.smsText}/>
         )
