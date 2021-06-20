@@ -6,12 +6,17 @@ const ButtonTexterea = (props) => {
     let addSms = () => {
         let text = newAddSms.current.value;
         props.addSmsDilogs(text);
-        newAddSms.current.value = '';
+        props.onChengeMessanges('');
+    }
+    let newOnChange = () => {
+        let text = newAddSms.current.value;
+        props.onChengeMessanges(text);
 
     }
+
     return (
         <div>
-            <textarea ref={newAddSms}></textarea>
+            <textarea ref={newAddSms} onChange={newOnChange} value={props.state.dilogsPostSms}/>
             <button onClick={addSms}>add sms</button>
         </div>
     )

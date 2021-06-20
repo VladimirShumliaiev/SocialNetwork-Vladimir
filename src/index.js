@@ -1,8 +1,23 @@
 import './index.css';
-import state from "./Redux/state";
-import {rerenderEntireTree} from "./rerenderEntireTree";
+import state, {addSmsDilogs, addSmsSettings, addUser, onChengeMessanges} from "./Redux/state";
 import reportWebVitals from "./reportWebVitals";
+import ReactDOM from "react-dom";
+import {BrowserRouter} from "react-router-dom";
+import React from "react";
+import App from "./App";
 
+
+
+export let rerenderEntireTree = (state) => {
+    ReactDOM.render(
+        <BrowserRouter>
+            <React.StrictMode>
+                <App state={state} addUser={addUser} addSmsDilogs={addSmsDilogs} addSmsSettings={addSmsSettings} onChengeMessanges={onChengeMessanges}/>
+            </React.StrictMode>,
+        </BrowserRouter>,
+        document.getElementById('root')
+    );
+}
 
 rerenderEntireTree(state);
 

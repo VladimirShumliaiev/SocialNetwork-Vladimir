@@ -1,4 +1,4 @@
-import {rerenderEntireTree} from "../rerenderEntireTree";
+import {rerenderEntireTree} from "../index";
 
 const state = {
 
@@ -44,11 +44,8 @@ const state = {
         ],
         arrDilogsSms: [
             {smsText: 'Hello Vladimir'},
-            {smsText: 'Hello Irina'},
-            {smsText: 'Alina'},
-            {smsText: 'Vitaliy'},
-            {smsText: 'Mariya'},
         ],
+        dilogsPostSms: 'Hello World',
     },
 
     arrFriends: [
@@ -66,13 +63,17 @@ const state = {
         },
     ],
 
+    arrSettings: [
+        {sms: 'sms:'},
+    ],
+
 }
 
-export const addUser = (userSms) => {
+export const addUser = () => {
 
     let newUser = {
         foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
-        sms: userSms,
+        sms: state.arrDilogs.arrDilogsSms,
         like: 43
 
     };
@@ -85,6 +86,19 @@ export const addSmsDilogs = (sms) => {
         smsText: sms,
     }
     state.arrDilogs.arrDilogsSms.push(newSms);
+    rerenderEntireTree(state)
+}
+
+export const addSmsSettings = (sms) => {
+    let smsText = {
+        sms: sms
+    }
+    state.arrSettings.push(smsText);
+    rerenderEntireTree(state);
+}
+
+export const onChengeMessanges = (smsDilogs) => {
+    state.arrDilogs.dilogsPostSms = smsDilogs;
     rerenderEntireTree(state)
 }
 

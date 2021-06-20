@@ -8,6 +8,7 @@ import Dilogs from "./componets/Dilogs/Dilogs";
 import Music from "./componets/Music/Music";
 import Settings from "./componets/Settings/Settings";
 import News from "./componets/News/News";
+import {onChengeMessanges} from "./Redux/state";
 
 
 const App = (props) => {
@@ -26,11 +27,13 @@ const App = (props) => {
                 <Route path={'/dilogs'} render={() =>
                     <Dilogs
                         state={props.state.arrDilogs}
-                        addSmsDilogs={props.addSmsDilogs}/>
+                        addSmsDilogs={props.addSmsDilogs}
+                        onChengeMessanges={props.onChengeMessanges}/>
                 }/>
                 <Route path={'/music'} render={Music}/>
                 <Route path={'/news'} render={News}/>
-                <Route path={'/settings'} render={Settings}/>
+                <Route path={'/settings'} render={() => <Settings state={props.state.arrSettings}
+                                                                  addSmsSettings={props.addSmsSettings}/>}/>
             </div>
         </header>
     )

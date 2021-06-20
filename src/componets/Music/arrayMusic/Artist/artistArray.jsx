@@ -8,7 +8,6 @@ let artistsArray = [
     {name: 'AgataKristi'},
     {name: 'Zemfira'},
 
-
     {artist: 'Nautilus'},
     {artist: 'DDT'},
     {artist: 'Okean Elzy'},
