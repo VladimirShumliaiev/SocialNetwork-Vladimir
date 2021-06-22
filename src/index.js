@@ -1,5 +1,5 @@
 import './index.css';
-import state, {addSmsDilogs, addSmsSettings, addUser, onChengeMessanges} from "./Redux/state";
+import state, {addSmsDilogs, addSmsSettings, addUser, onChengeMessanges, subscribe} from "./Redux/state";
 import reportWebVitals from "./reportWebVitals";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
@@ -20,6 +20,7 @@ export let rerenderEntireTree = (state) => {
 }
 
 rerenderEntireTree(state);
+subscribe(rerenderEntireTree);
 
 
 // If you want to start measuring performance in your app, pass a function

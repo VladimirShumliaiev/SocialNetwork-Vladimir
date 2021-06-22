@@ -1,6 +1,8 @@
-import {rerenderEntireTree} from "../index";
+let rerenderEntireTree = () => {
+    console.log('111');
+}
 
-const state = {
+let state = {
 
     arrProfile: [
 
@@ -26,12 +28,12 @@ const state = {
     ],
 
     navBarList: [
-        {id: '/profile',name: 'Profile'},
-        {id: '/dilogs',name: 'Messages'},
-        {id: '/music',name: 'Music'},
-        {id: '/news',name: 'News'},
-        {id: '/settings',name: <h3>Settings</h3>},
-        {id: '/friends',name: <div><h3>Friends</h3></div>},
+        {id: '/profile', name: 'Profile'},
+        {id: '/dilogs', name: 'Messages'},
+        {id: '/music', name: 'Music'},
+        {id: '/news', name: 'News'},
+        {id: '/settings', name: <h3>Settings</h3>},
+        {id: '/friends', name: 'Friends'},
     ],
 
     arrDilogs: {
@@ -68,22 +70,22 @@ const state = {
     ],
 
 }
-
-export const addUser = () => {
+window.state = state;
+export const addUser = (sms) => {
 
     let newUser = {
         foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
-        sms: state.arrDilogs.arrDilogsSms,
+        sms: sms,
         like: 43
 
-    };
+    }
     state.arrProfile.push(newUser);
     rerenderEntireTree(state)
 }
 
-export const addSmsDilogs = (sms) => {
+export const addSmsDilogs = () => {
     let newSms = {
-        smsText: sms,
+        smsText: state.arrDilogs.dilogsPostSms,
     }
     state.arrDilogs.arrDilogsSms.push(newSms);
     rerenderEntireTree(state)
@@ -91,7 +93,7 @@ export const addSmsDilogs = (sms) => {
 
 export const addSmsSettings = (sms) => {
     let smsText = {
-        sms: sms
+        sms: sms,
     }
     state.arrSettings.push(smsText);
     rerenderEntireTree(state);
@@ -100,6 +102,10 @@ export const addSmsSettings = (sms) => {
 export const onChengeMessanges = (smsDilogs) => {
     state.arrDilogs.dilogsPostSms = smsDilogs;
     rerenderEntireTree(state)
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 export default state;

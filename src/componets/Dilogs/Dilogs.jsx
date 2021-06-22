@@ -2,7 +2,7 @@ import React from "react";
 import style from './Dilogs.module.css';
 import UserDilogs from "./Dailog Components/UserDilogs/UserDilogs";
 import SmsDilogs from "./Dailog Components/Sms Dilogs/SmsDilogs";
-import ButtonTexterea from "../Profile/Button and Texterea/Button-Texterea";
+import ButtonTexterea from "./Dailog Components/Button and Texterea/Button-Texterea";
 
 const Dilogs = (props) => {
 
