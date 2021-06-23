@@ -1,32 +1,31 @@
 let rerenderEntireTree = () => {
-    console.log('111');
 }
 
 let state = {
 
-    arrProfile: [
+    profilePage: {
+        arrProfile: [
 
-        {
-            foto: 'https://ic.pics.livejournal.com/bigra/74120222/428910/428910_600.jpg',
-            sms: `Yo Yo, wot is uore name`,
-            like: 498
-        },
+            {
+                foto: 'https://ic.pics.livejournal.com/bigra/74120222/428910/428910_600.jpg',
+                sms: `Yo Yo, wot is uore name`,
+                like: 498
+            },
 
-        {
-            foto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNGi-IiJ_f_rlqPt--LJQ4wx_3lEt2kYspOQ&usqp=CAU',
-            sms: 'Wat to you duet? yes of corse',
-            like: 345
-        },
+            {
+                foto: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNGi-IiJ_f_rlqPt--LJQ4wx_3lEt2kYspOQ&usqp=CAU',
+                sms: 'Wat to you duet? yes of corse',
+                like: 345
+            },
 
-        {
-            foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
-            sms: 'Hello Hi',
-            like: 658
-        },
-
-
-    ],
-
+            {
+                foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
+                sms: 'Hello Hi',
+                like: 658
+            },
+        ],
+        profileSmsPost: 'addPost',
+    },
     navBarList: [
         {id: '/profile', name: 'Profile'},
         {id: '/dilogs', name: 'Messages'},
@@ -35,7 +34,6 @@ let state = {
         {id: '/settings', name: <h3>Settings</h3>},
         {id: '/friends', name: 'Friends'},
     ],
-
     arrDilogs: {
         arrDilogsUsers: [
             {id: 1, name: 'Vladimir'},
@@ -49,7 +47,6 @@ let state = {
         ],
         dilogsPostSms: 'Hello World',
     },
-
     arrFriends: [
         {
             foto: 'https://www.meme-arsenal.com/memes/807f7063ae47455ef78d5a0743509576.jpg',
@@ -64,14 +61,13 @@ let state = {
             name: 'Kolya',
         },
     ],
-
     arrSettings: [
         {sms: 'sms:'},
     ],
 
 }
-window.state = state;
-export const addUser = (sms) => {
+
+export const addUserProfile = (sms) => {
 
     let newUser = {
         foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
@@ -79,7 +75,11 @@ export const addUser = (sms) => {
         like: 43
 
     }
-    state.arrProfile.push(newUser);
+    state.profilePage.arrProfile.push(newUser);
+    rerenderEntireTree(state)
+}
+export const profileOnChange = (sms) => {
+    state.profilePage.profileSmsPost = sms;
     rerenderEntireTree(state)
 }
 
@@ -88,6 +88,10 @@ export const addSmsDilogs = () => {
         smsText: state.arrDilogs.dilogsPostSms,
     }
     state.arrDilogs.arrDilogsSms.push(newSms);
+    rerenderEntireTree(state)
+}
+export const onChengeMessanges = (smsDilogs) => {
+    state.arrDilogs.dilogsPostSms = smsDilogs;
     rerenderEntireTree(state)
 }
 
@@ -99,13 +103,10 @@ export const addSmsSettings = (sms) => {
     rerenderEntireTree(state);
 }
 
-export const onChengeMessanges = (smsDilogs) => {
-    state.arrDilogs.dilogsPostSms = smsDilogs;
-    rerenderEntireTree(state)
-}
-
 export const subscribe = (observer) => {
     rerenderEntireTree = observer;
 }
 
+
 export default state;
+window.state = state;

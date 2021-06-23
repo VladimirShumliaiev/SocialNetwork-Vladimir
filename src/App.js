@@ -8,6 +8,7 @@ import Dilogs from "./componets/Dilogs/Dilogs";
 import Music from "./componets/Music/Music";
 import Settings from "./componets/Settings/Settings";
 import News from "./componets/News/News";
+import {profileOnChange} from "./Redux/state";
 
 
 
@@ -21,8 +22,9 @@ const App = (props) => {
             <div>
                 <Route path={'/profile'} render={() =>
                     <Profile
-                        state={props.state.arrProfile}
-                        addUser={props.addUser}/>
+                        state={props.state.profilePage}
+                        addUserProfile={props.addUserProfile}
+                        profileOnChange={props.profileOnCange}/>
                 }/>
                 <Route path={'/dilogs'} render={() =>
                     <Dilogs
@@ -32,7 +34,7 @@ const App = (props) => {
                 }/>
                 <Route path={'/music'} render={Music}/>
                 <Route path={'/news'} render={News}/>
-                <Route path={'/settings'} render={() => <Settings state={props.state.arrSettings}
+                <Route path={'/settings'} render={() => <Settings state={props.state}
                                                                   addSmsSettings={props.addSmsSettings}/>}/>
             </div>
         </header>

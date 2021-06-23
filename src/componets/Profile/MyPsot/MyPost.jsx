@@ -7,7 +7,7 @@ import MyAva from "../MyAva/MyAva";
 const MyPost = (props) => {
 
 
-    let newArrProfile = props.state.map((el) => {
+    let newArrProfile = props.state.arrProfile.map((el) => {
         return (
             <div>
                 <Post foto={el.foto} sms={el.sms} like={el.like}/>
@@ -19,8 +19,12 @@ const MyPost = (props) => {
 
     let addPost = () => {
         let text = newAddPost.current.value;
-        props.addUser(text);
-        newAddPost.current.value = '';
+        props.addUserProfile(text);
+        props.profileOnChange('');
+    }
+
+    let newpProfileOnChange = () => {
+        props.profileOnChange();
     }
 
     return (
@@ -29,7 +33,8 @@ const MyPost = (props) => {
                 <MyAva/>
             </div>
             <div>
-                <textarea ref={newAddPost} cols="30" rows="4"></textarea>
+                <textarea ref={newAddPost} onChange={newpProfileOnChange} value={props.state.profileSmsPost} cols="30"
+                          rows="4"/>
                 <button onClick={addPost}>add Post</button>
             </div>
             <div>

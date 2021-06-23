@@ -5,11 +5,12 @@ import SettingsCall from "./SettingsCall/SettingsCall";
 
 const Settings = (props) => {
 
-    let newSmsSettings = props.state.map((el) => {
+    let newSmsSettings = props.state.arrSettings.map((el) => {
         return (
-            <SettingsCall sms={el.sms} />
+            <SettingsCall sms={el.sms}/>
         )
     })
+
 
     let addTextTexterea = React.createRef();
 
@@ -22,7 +23,7 @@ const Settings = (props) => {
     return (
         <div className={style.item}>
             <div>
-                <textarea ref={addTextTexterea} />
+                <textarea ref={addTextTexterea}/>
                 <button onClick={pushBatton}>add Sms</button>
             </div>
             <div>

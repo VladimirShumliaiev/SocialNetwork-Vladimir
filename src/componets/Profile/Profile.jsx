@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./Profile.module.css"
+import style from "./Profile.module.css";
 import Ava from "./Ava/Ava";
 import MyPost from "./MyPsot/MyPost";
 
@@ -10,7 +10,7 @@ const Profile = (props) => {
             <Ava/>
             <div className={style.posts}>
                 <div>
-                    <MyPost state={props.state} addUser={props.addUser}/>
+                    <MyPost state={props.state} profileOnChange={props.profileOnChange} addUserProfile={props.addUserProfile}/>
                 </div>
             </div>
         </div>

@@ -1,5 +1,7 @@
 import './index.css';
-import state, {addSmsDilogs, addSmsSettings, addUser, onChengeMessanges, subscribe} from "./Redux/state";
+import state, {
+    addSmsDilogs, addSmsSettings, addUserProfile, onChengeMessanges,profileOnChange, subscribe
+} from "./Redux/state";
 import reportWebVitals from "./reportWebVitals";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
@@ -7,12 +9,12 @@ import React from "react";
 import App from "./App";
 
 
-
 export let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
-                <App state={state} addUser={addUser} addSmsDilogs={addSmsDilogs} addSmsSettings={addSmsSettings} onChengeMessanges={onChengeMessanges}/>
+                <App state={state} addUserProfile={addUserProfile} addSmsDilogs={addSmsDilogs} addSmsSettings={addSmsSettings}
+                     onChengeMessanges={onChengeMessanges} profileOnCange={profileOnChange}/>
             </React.StrictMode>,
         </BrowserRouter>,
         document.getElementById('root')
