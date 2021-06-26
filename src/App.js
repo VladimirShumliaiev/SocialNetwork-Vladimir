@@ -21,8 +21,7 @@ const App = (props) => {
             <div>
                 <Route path={'/profile'} render={() => <Profile
                     state={props.state.profilePage}
-                    addUserProfile={props.addUserProfile}
-                    profileOnChange={props.profileOnCange}/>
+                    dispatch={props.dispatch}/>
                 }/>
                 <Route path={'/dilogs'} render={() => <Dilogs
                     state={props.state.arrDilogs}

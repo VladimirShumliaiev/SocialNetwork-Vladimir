@@ -1,6 +1,5 @@
 let store = {
     state: {
-
         profilePage: {
             arrProfile: [
 
@@ -67,22 +66,6 @@ let store = {
     rerenderEntireTree() {
     },
 
-    addUserProfile(sms) {
-
-        let newUser = {
-            foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
-            sms: sms,
-            like: 43
-
-        }
-        this.state.profilePage.arrProfile.push(newUser);
-        this.rerenderEntireTree(this.state)
-    },
-    profileOnChange(sms) {
-        this.state.profilePage.profileSmsPost = sms;
-        this.rerenderEntireTree(this.state)
-    },
-
     addSmsDilogs() {
         let newSms = {
             smsText: this.state.arrDilogs.dilogsPostSms,
@@ -106,6 +89,25 @@ let store = {
     subscribe(observer) {
         this.rerenderEntireTree = observer;
     },
+
+    dispatch(action) {
+        if (action.type === 'ADD-USER-PROFILE'){
+            let newUser = {
+                foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
+                sms: this.state.profilePage.profileSmsPost,
+                like: 43
+
+            }
+            this.state.profilePage.arrProfile.push(newUser);
+            this.state.profilePage.profileSmsPost = '';
+            this.rerenderEntireTree(this.state)
+        } else if (action.type === 'PROFILE-ONCHANGE') {
+            this.state.profilePage.profileSmsPost = action.sms;
+            this.rerenderEntireTree(this.state)
+        }
+    }
+
+
 }
 
 

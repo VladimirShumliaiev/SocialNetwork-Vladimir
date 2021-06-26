@@ -12,11 +12,11 @@ export let rerenderEntireTree = (state) => {
         <BrowserRouter>
             <React.StrictMode>
                 <App state={state}
-                     addUserProfile={store.addUserProfile.bind(store)}
+                     dispatch={store.dispatch.bind(store)}
                      addSmsDilogs={store.addSmsDilogs.bind(store)}
-                     addSmsSettings={store.addSmsSettings.bind(store)}
                      onChengeMessanges={store.onChengeMessanges.bind(store)}
-                     profileOnCange={store.profileOnChange.bind(store)}/>
+                     addSmsSettings={store.addSmsSettings.bind(store)}
+                     />
             </React.StrictMode>,
         </BrowserRouter>,
         document.getElementById('root')

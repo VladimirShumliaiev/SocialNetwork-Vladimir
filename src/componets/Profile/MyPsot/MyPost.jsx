@@ -18,13 +18,15 @@ const MyPost = (props) => {
     let newAddPost = React.createRef();
 
     let addPost = () => {
+
         let text = newAddPost.current.value;
-        props.addUserProfile(text);
-        props.profileOnChange('');
+        props.dispatch({type: 'ADD-USER-PROFILE',text});
+
     }
 
-    let newpProfileOnChange = () => {
-        props.profileOnChange();
+    let newProfileOnChange = () => {
+        let sms = newAddPost.current.value;
+        props.dispatch({type: 'PROFILE-ONCHANGE',sms});
     }
 
     return (
@@ -33,7 +35,7 @@ const MyPost = (props) => {
                 <MyAva/>
             </div>
             <div>
-                <textarea ref={newAddPost} onChange={newpProfileOnChange} value={props.state.profileSmsPost} cols="30"
+                <textarea ref={newAddPost} onChange={newProfileOnChange} value={props.state.profileSmsPost} cols="30"
                           rows="4"/>
                 <button onClick={addPost}>add Post</button>
             </div>
