@@ -1,27 +1,27 @@
 import React from "react";
 import style from './Music.module.css'
-import newArtistArray from "./arrayMusic/Artist/newArtistArray";
-import newTracsArray from "./arrayMusic/Tracks/newTracsArray";
-import newArtistArrayRight from "./arrayMusic/Artist/newArtistArrayRight";
-import newTracksArrayRight from "./arrayMusic/Tracks/newTracksArrayRight";
+import newArtistSecondColumn from "./arrayMusic/Artist/newArtistSecondColumn";
+import newArtistFirstColumn from "./arrayMusic/Artist/newArtistFirstColumn";
+import newTracksOneColumn from "./arrayMusic/Tracks/newTracksOneColumn";
+import newTracksSecondColumn from "./arrayMusic/Tracks/newTracksSecondColumn";
 
-const Music = (props) => {
+const Music = () => {
     return (
         <div className={style.item}>
             <div className={style.oneBlock}>
-                {newArtistArray}
+                {newArtistFirstColumn}
             </div>
 
             <div className={style.twoBlock}>
-                {newTracsArray}
+                {newTracksOneColumn}
             </div>
 
             <div className={style.threeBlock}>
-                {newArtistArrayRight}
+                {newArtistSecondColumn}
             </div>
 
             <div className={style.forBlock}>
-                {newTracksArrayRight}
+                {newTracksSecondColumn}
             </div>
 
         </div>
