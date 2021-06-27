@@ -22,7 +22,6 @@ const MyPost = (props) => {
     let newAddPost = React.createRef();
 
     let addPost = () => {
-        // let text = newAddPost.current.value;
         props.dispatch(addUserProfileActionCreator());
 
     }
