@@ -1,3 +1,8 @@
+const addUserProfileActionType = 'ADD-USER-PROFILE';
+const profileOnChangeActionType = 'PROFILE-ONCHANGE';
+const addSmsDilogsActionType = 'ADD-SMS-DILOGS';
+const oneChangeMesageActionType = 'ONE-CHENGE-MESAGE';
+
 let store = {
     state: {
         profilePage: {
@@ -80,7 +85,7 @@ let store = {
 
     dispatch(action) {
 
-        if (action.type === 'ADD-USER-PROFILE') {
+        if (action.type === addUserProfileActionType) {
             let newUser = {
                 foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
                 sms: this.state.profilePage.profileSmsPost,
@@ -91,7 +96,7 @@ let store = {
             this.state.profilePage.profileSmsPost = '';
             this.rerenderEntireTree(this.state)
 
-        } else if (action.type === 'PROFILE-ONCHANGE') {
+        } else if (action.type === profileOnChangeActionType) {
             this.state.profilePage.profileSmsPost = action.sms;
             this.rerenderEntireTree(this.state)
 
@@ -103,14 +108,33 @@ let store = {
             this.state.arrDilogs.dilogsPostSms = '';
             this.rerenderEntireTree(this.state)
 
-        } else if (action.type === 'ONE-CHENGE-MESSAGE') {
+        } else if (action.type === 'ONE-CHENGE-MESAGE') {
             this.state.arrDilogs.dilogsPostSms = action.sms;
             this.rerenderEntireTree(this.state)
         }
     }
 
-
 }
+
+export const profileOnChangeActionCreator = (text) => {
+    return(
+        {type: profileOnChangeActionType, sms: text}
+    )
+}
+export const addUserProfileActionCreator = () => {
+    return(
+        {type: addUserProfileActionType}
+)}
+export const addSmsDilogsActionCreator = () => {
+    return(
+        {type: addSmsDilogsActionType}
+)}
+export const oneChangeMesageActionCreator = (text) => {
+    return(
+        {type: oneChangeMesageActionType, sms: text}
+)}
+
+
 
 
 export default store;

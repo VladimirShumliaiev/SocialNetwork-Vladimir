@@ -2,6 +2,10 @@ import React from "react";
 import style from './MyPost.module.css'
 import Post from "../Post/Post";
 import MyAva from "../MyAva/MyAva";
+import {
+    addUserProfileActionCreator,
+    profileOnChangeActionCreator,
+} from "../../../Redux/state";
 
 
 const MyPost = (props) => {
@@ -18,14 +22,14 @@ const MyPost = (props) => {
     let newAddPost = React.createRef();
 
     let addPost = () => {
-        let text = newAddPost.current.value;
-        props.dispatch({type: 'ADD-USER-PROFILE',text});
+        // let text = newAddPost.current.value;
+        props.dispatch(addUserProfileActionCreator());
 
     }
 
     let newProfileOnChange = () => {
         let smsText = newAddPost.current.value;
-        props.dispatch({type: 'PROFILE-ONCHANGE',sms: smsText});
+        props.dispatch(profileOnChangeActionCreator(smsText));
     }
 
     return (
