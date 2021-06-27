@@ -18,15 +18,14 @@ const MyPost = (props) => {
     let newAddPost = React.createRef();
 
     let addPost = () => {
-
         let text = newAddPost.current.value;
         props.dispatch({type: 'ADD-USER-PROFILE',text});
 
     }
 
     let newProfileOnChange = () => {
-        let sms = newAddPost.current.value;
-        props.dispatch({type: 'PROFILE-ONCHANGE',sms});
+        let smsText = newAddPost.current.value;
+        props.dispatch({type: 'PROFILE-ONCHANGE',sms: smsText});
     }
 
     return (

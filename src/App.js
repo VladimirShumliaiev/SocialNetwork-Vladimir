@@ -10,7 +10,6 @@ import Settings from "./componets/Settings/Settings";
 import News from "./componets/News/News";
 
 
-
 const App = (props) => {
     return (
         <header className={'App'}>
@@ -25,8 +24,7 @@ const App = (props) => {
                 }/>
                 <Route path={'/dilogs'} render={() => <Dilogs
                     state={props.state.arrDilogs}
-                    addSmsDilogs={props.addSmsDilogs}
-                    onChengeMessanges={props.onChengeMessanges}/>
+                    dispatch={props.dispatch}/>
                 }/>
                 <Route path={'/music'} render={Music}/>
                 <Route path={'/news'} render={News}/>

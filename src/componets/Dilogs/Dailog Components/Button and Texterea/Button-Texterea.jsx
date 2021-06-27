@@ -5,12 +5,12 @@ const ButtonTexterea = (props) => {
 
     let addSms = () => {
         let text = newAddSms.current.value;
-        props.addSmsDilogs(text);
-        props.onChengeMessanges('');
+        props.dispatch({type: 'ADD-SMS-DILOGS',text});
+
     }
     let newOnChange = () => {
-        let text = newAddSms.current.value;
-        props.onChengeMessanges(text);
+        let smsDilogs = newAddSms.current.value;
+        props.dispatch({type: 'ONE-CHENGE-MESSAGE',sms: smsDilogs});
 
     }
 

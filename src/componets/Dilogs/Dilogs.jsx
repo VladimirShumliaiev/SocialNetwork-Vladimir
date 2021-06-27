@@ -27,7 +27,7 @@ const Dilogs = (props) => {
 
             <div className={style.smsDilogs}>
                 {newSmsDilogsObject}
-                <ButtonTexterea state={props.state} addSmsDilogs={props.addSmsDilogs} onChengeMessanges={props.onChengeMessanges} />
+                <ButtonTexterea state={props.state} dispatch={props.dispatch}/>
             </div>
         </div>
     )

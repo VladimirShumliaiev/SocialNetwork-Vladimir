@@ -13,8 +13,6 @@ export let rerenderEntireTree = (state) => {
             <React.StrictMode>
                 <App state={state}
                      dispatch={store.dispatch.bind(store)}
-                     addSmsDilogs={store.addSmsDilogs.bind(store)}
-                     onChengeMessanges={store.onChengeMessanges.bind(store)}
                      addSmsSettings={store.addSmsSettings.bind(store)}
                      />
             </React.StrictMode>,

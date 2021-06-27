@@ -66,18 +66,6 @@ let store = {
     rerenderEntireTree() {
     },
 
-    addSmsDilogs() {
-        let newSms = {
-            smsText: this.state.arrDilogs.dilogsPostSms,
-        }
-        this.state.arrDilogs.arrDilogsSms.push(newSms);
-        this.rerenderEntireTree(this.state)
-    },
-    onChengeMessanges(smsDilogs) {
-        this.state.arrDilogs.dilogsPostSms = smsDilogs;
-        this.rerenderEntireTree(this.state)
-    },
-
     addSmsSettings(sms) {
         let smsText = {
             sms: sms,
@@ -91,7 +79,8 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-USER-PROFILE'){
+
+        if (action.type === 'ADD-USER-PROFILE') {
             let newUser = {
                 foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
                 sms: this.state.profilePage.profileSmsPost,
@@ -101,8 +90,21 @@ let store = {
             this.state.profilePage.arrProfile.push(newUser);
             this.state.profilePage.profileSmsPost = '';
             this.rerenderEntireTree(this.state)
+
         } else if (action.type === 'PROFILE-ONCHANGE') {
             this.state.profilePage.profileSmsPost = action.sms;
+            this.rerenderEntireTree(this.state)
+
+        } else if (action.type === 'ADD-SMS-DILOGS') {
+            let newSms = {
+                smsText: this.state.arrDilogs.dilogsPostSms,
+            }
+            this.state.arrDilogs.arrDilogsSms.push(newSms);
+            this.state.arrDilogs.dilogsPostSms = '';
+            this.rerenderEntireTree(this.state)
+
+        } else if (action.type === 'ONE-CHENGE-MESSAGE') {
+            this.state.arrDilogs.dilogsPostSms = action.sms;
             this.rerenderEntireTree(this.state)
         }
     }
