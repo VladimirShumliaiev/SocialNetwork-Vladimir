@@ -1,30 +1,36 @@
 import React from "react";
 import style from './Settings.module.css';
 import SettingsCall from "./SettingsCall/SettingsCall";
+import {addSettingsCreator, oneSettingsSmsChangeCreator} from "../../Redux/state";
 
 
 const Settings = (props) => {
 
     let newSmsSettings = props.state.arrSettings.map((el) => {
         return (
-            <SettingsCall sms={el.sms}/>
+            <SettingsCall sms={el.smsSettings}/>
         )
     })
 
+    let addSettingsSms = props.state.addSettingsSms;
 
-    let addTextTexterea = React.createRef();
+  let onButtonClick = () => {
+        props.dispatch( addSettingsCreator());
+  }
 
-    let pushBatton = () => {
-        let sms = addTextTexterea.current.value;
-        props.addSmsSettings(sms);
-        addTextTexterea.current.value='';
-    }
+  let oneChangeSettings = (e) => {
+        let sms = e.target.value;
+        props.dispatch(oneSettingsSmsChangeCreator(sms));
+
+  }
+
+
 
     return (
         <div className={style.item}>
             <div>
-                <textarea ref={addTextTexterea}/>
-                <button onClick={pushBatton}>add Sms</button>
+                <textarea onChange={oneChangeSettings} value={addSettingsSms} placeholder={'Sms...'}/>
+                <button onClick={onButtonClick}>add Sms</button>
             </div>
             <div>
                 {newSmsSettings}

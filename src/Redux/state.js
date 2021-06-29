@@ -2,6 +2,8 @@ const addUserProfileActionType = 'ADD-USER-PROFILE';
 const profileOnChangeActionType = 'PROFILE-ONCHANGE';
 const addSmsDilogsActionType = 'ADD-SMS-DILOGS';
 const oneChangeMesageActionType = 'ONE-CHENGE-MESAGE';
+const addSettingsSms = 'ADD-SMS-SETTINGS';
+const oneSettingsSms = 'ONE-SETTINGS-POST';
 
 let store = {
     state: {
@@ -26,7 +28,7 @@ let store = {
                     like: 658
                 },
             ],
-            profileSmsPost: 'addPost',
+            profileSmsPost: '',
         },
         navBarList: [
             {id: '/profile', name: 'Profile'},
@@ -47,7 +49,7 @@ let store = {
             arrDilogsSms: [
                 {smsText: 'Hello Vladimir'},
             ],
-            dilogsPostSms: 'Hello World',
+            dilogsPostSms: '',
         },
         arrFriends: [
             {
@@ -63,22 +65,15 @@ let store = {
                 name: 'Kolya',
             },
         ],
-        arrSettings: [
-            {sms: 'sms:'},
-        ],
-
+        settingsPage: {
+            arrSettings: [
+                {smsSettings: 'sms:'},
+            ],
+            addSettingsSms: '',
+        },
     },
     rerenderEntireTree() {
     },
-
-    addSmsSettings(sms) {
-        let smsText = {
-            sms: sms,
-        }
-        this.state.arrSettings.push(smsText);
-        this.rerenderEntireTree(this.state);
-    },
-
     subscribe(observer) {
         this.rerenderEntireTree = observer;
     },
@@ -111,31 +106,55 @@ let store = {
         } else if (action.type === 'ONE-CHENGE-MESAGE') {
             this.state.arrDilogs.dilogsPostSms = action.sms;
             this.rerenderEntireTree(this.state)
+
+        } else if (action.type === addSettingsSms) {
+            let newSettingsPost = {
+                smsSettings: this.state.settingsPage.addSettingsSms
+            }
+            this.state.settingsPage.arrSettings.push(newSettingsPost);
+            this.state.settingsPage.addSettingsSms = '';
+            this.rerenderEntireTree(this.state)
+
+        } else if (action.type === oneSettingsSms){
+            this.state.settingsPage.addSettingsSms = action.smsSettings;
+            this.rerenderEntireTree(this.state)
         }
     }
 
 }
-
+export const addUserProfileActionCreator = () => {
+    return (
+        {type: addUserProfileActionType}
+    )
+}
 export const profileOnChangeActionCreator = (text) => {
-    return(
+    return (
         {type: profileOnChangeActionType, sms: text}
     )
 }
-export const addUserProfileActionCreator = () => {
-    return(
-        {type: addUserProfileActionType}
-)}
+
+
 export const addSmsDilogsActionCreator = () => {
-    return(
+    return (
         {type: addSmsDilogsActionType}
-)}
+    )
+}
 export const oneChangeMesageActionCreator = (text) => {
-    return(
+    return (
         {type: oneChangeMesageActionType, sms: text}
-)}
+    )
+}
 
-
-
+export const addSettingsCreator = () => {
+    return (
+        {type: addSettingsSms}
+    )
+}
+export const oneSettingsSmsChangeCreator = (sms) => {
+    return(
+        {type: oneSettingsSms,smsSettings: sms }
+    )
+}
 
 export default store;
 window.store = store;

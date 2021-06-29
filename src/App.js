@@ -29,8 +29,8 @@ const App = (props) => {
                 <Route path={'/music'} render={Music}/>
                 <Route path={'/news'} render={News}/>
                 <Route path={'/settings'} render={() => <Settings
-                    state={props.state}
-                    addSmsSettings={props.addSmsSettings}/>}/>
+                    state={props.state.settingsPage}
+                    dispatch={props.dispatch}/>}/>
             </div>
         </header>
     )

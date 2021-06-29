@@ -17,7 +17,7 @@ const ButtonTexterea = (props) => {
 
     return (
         <div>
-            <textarea ref={newAddSms} onChange={newOnChange} value={props.state.dilogsPostSms}/>
+            <textarea ref={newAddSms} onChange={newOnChange} value={props.state.dilogsPostSms} placeholder={'Text...'}/>
             <button onClick={addSms}>add sms</button>
         </div>
     )
