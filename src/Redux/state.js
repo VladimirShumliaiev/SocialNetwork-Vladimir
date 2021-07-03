@@ -1,9 +1,8 @@
-const addUserProfileActionType = 'ADD-USER-PROFILE';
-const profileOnChangeActionType = 'PROFILE-ONCHANGE';
-const addSmsDilogsActionType = 'ADD-SMS-DILOGS';
-const oneChangeMesageActionType = 'ONE-CHENGE-MESAGE';
-const addSettingsSms = 'ADD-SMS-SETTINGS';
-const oneSettingsSms = 'ONE-SETTINGS-POST';
+import profileReducer from "./Reducers/profileReducer";
+import dilogsReducer from "./Reducers/dilogsReducer";
+import settingsReducer from "./Reducers/settingsReaducer";
+
+
 
 let store = {
     state: {
@@ -79,82 +78,19 @@ let store = {
     },
 
     dispatch(action) {
+        this.state.profilePage = profileReducer(this.state.profilePage,action)
+        this.state.arrDilogs = dilogsReducer(this.state.arrDilogs,action)
+        this.state.settingsPage = settingsReducer(this.state.settingsPage,action)
 
-        if (action.type === addUserProfileActionType) {
-            let newUser = {
-                foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
-                sms: this.state.profilePage.profileSmsPost,
-                like: 43
-
-            }
-            this.state.profilePage.arrProfile.push(newUser);
-            this.state.profilePage.profileSmsPost = '';
-            this.rerenderEntireTree(this.state)
-
-        } else if (action.type === profileOnChangeActionType) {
-            this.state.profilePage.profileSmsPost = action.sms;
-            this.rerenderEntireTree(this.state)
-
-        } else if (action.type === 'ADD-SMS-DILOGS') {
-            let newSms = {
-                smsText: this.state.arrDilogs.dilogsPostSms,
-            }
-            this.state.arrDilogs.arrDilogsSms.push(newSms);
-            this.state.arrDilogs.dilogsPostSms = '';
-            this.rerenderEntireTree(this.state)
-
-        } else if (action.type === 'ONE-CHENGE-MESAGE') {
-            this.state.arrDilogs.dilogsPostSms = action.sms;
-            this.rerenderEntireTree(this.state)
-
-        } else if (action.type === addSettingsSms) {
-            let newSettingsPost = {
-                smsSettings: this.state.settingsPage.addSettingsSms
-            }
-            this.state.settingsPage.arrSettings.push(newSettingsPost);
-            this.state.settingsPage.addSettingsSms = '';
-            this.rerenderEntireTree(this.state)
-
-        } else if (action.type === oneSettingsSms){
-            this.state.settingsPage.addSettingsSms = action.smsSettings;
-            this.rerenderEntireTree(this.state)
-        }
+       this.rerenderEntireTree(this.state)
     }
 
 }
-export const addUserProfileActionCreator = () => {
-    return (
-        {type: addUserProfileActionType}
-    )
-}
-export const profileOnChangeActionCreator = (text) => {
-    return (
-        {type: profileOnChangeActionType, sms: text}
-    )
-}
 
 
-export const addSmsDilogsActionCreator = () => {
-    return (
-        {type: addSmsDilogsActionType}
-    )
-}
-export const oneChangeMesageActionCreator = (text) => {
-    return (
-        {type: oneChangeMesageActionType, sms: text}
-    )
-}
 
-export const addSettingsCreator = () => {
-    return (
-        {type: addSettingsSms}
-    )
-}
-export const oneSettingsSmsChangeCreator = (sms) => {
-    return(
-        {type: oneSettingsSms,smsSettings: sms }
-    )
-}
+
+
 
 export default store;
 window.store = store;

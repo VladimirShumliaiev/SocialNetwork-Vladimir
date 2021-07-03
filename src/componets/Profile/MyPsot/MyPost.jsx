@@ -5,7 +5,7 @@ import MyAva from "../MyAva/MyAva";
 import {
     addUserProfileActionCreator,
     profileOnChangeActionCreator,
-} from "../../../Redux/state";
+} from "../../../Redux/Reducers/profileReducer";
 
 
 const MyPost = (props) => {

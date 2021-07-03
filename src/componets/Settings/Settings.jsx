@@ -1,7 +1,7 @@
 import React from "react";
 import style from './Settings.module.css';
 import SettingsCall from "./SettingsCall/SettingsCall";
-import {addSettingsCreator, oneSettingsSmsChangeCreator} from "../../Redux/state";
+import {addSettingsCreator, oneSettingsSmsChangeCreator} from "../../Redux/Reducers/settingsReaducer";
 
 
 const Settings = (props) => {

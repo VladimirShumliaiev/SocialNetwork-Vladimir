@@ -1,11 +1,10 @@
 import React from "react";
-import {addSmsDilogsActionCreator, oneChangeMesageActionCreator} from "../../../../Redux/state";
+import {addSmsDilogsActionCreator, oneChangeMesageActionCreator} from "../../../../Redux/Reducers/dilogsReducer";
 
 const ButtonTexterea = (props) => {
     let newAddSms = React.createRef();
 
     let addSms = () => {
-        // let text = newAddSms.current.value;
         props.dispatch(addSmsDilogsActionCreator());
 
     }
