@@ -3,7 +3,7 @@ import profileReducer from "./Reducers/profileReducer";
 import dilogsReducer from "./Reducers/dilogsReducer";
 import settingsReducer from "./Reducers/settingsReaducer";
 
-let reduers = combineReducers({
+let reducers = combineReducers({
         profilePage: profileReducer,
         arrDilogs: dilogsReducer,
         settingsPage: settingsReducer,
@@ -11,6 +11,6 @@ let reduers = combineReducers({
 )
 
 
-let store = createStore(reduers);
+let store = createStore(reducers);
 
 export default store;
