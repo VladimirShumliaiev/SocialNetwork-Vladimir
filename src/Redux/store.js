@@ -73,6 +73,9 @@ let store = {
     },
     rerenderEntireTree() {
     },
+    getState() {
+        return this.state;
+    },
     subscribe(observer) {
         this.rerenderEntireTree = observer;
     },

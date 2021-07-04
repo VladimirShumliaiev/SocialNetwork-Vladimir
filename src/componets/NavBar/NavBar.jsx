@@ -3,10 +3,12 @@ import NavBarShablon from "./NavBarShablon/NavBarShablon";
 import style from './NavBar.module.css'
 import {NavLink} from "react-router-dom";
 import SiteBar from "./SiteBar/SiteBar";
+import navBarList from "./NavBarList/NavBarList";
 
 
-const NavBar = (props) => {
-    let newNavBarList = props.navBarList.map((el) => {
+
+const NavBar = () => {
+    let newNavBarList = navBarList.map((el) => {
         return(
             <NavBarShablon name={<NavLink to={el.id} activeClassName={style.activeNav}>{el.name}</NavLink>}/>
         )
@@ -18,7 +20,7 @@ const NavBar = (props) => {
                 <br/>
             </div>
             <div className={style.siteBar}>
-                <SiteBar state={props.state} />
+                <SiteBar/>
             </div>
         </div>
     )

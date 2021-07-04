@@ -1,18 +1,18 @@
 import React from "react";
 import SiteBarAlert from "./SiteBarAlert/SiteBarAlert";
-import style from './SiteBar.module.css'
+import siteBarList from "./SiteBarList/siteBarList";
 
-const SiteBar = (props) => {
-    let newArrFriends = props.state.map((el) => {
+const SiteBar = () => {
+    let newArrFriends = siteBarList.map((el) => {
         return (
-            <div className={style.s}>
+            <div>
             <SiteBarAlert siteBarFoto={el.foto} siteBarName={el.name}/>
             </div>
         )
     })
 
     return (
-        <div className={style.item}>
+        <div>
             {newArrFriends}
         </div>
     )

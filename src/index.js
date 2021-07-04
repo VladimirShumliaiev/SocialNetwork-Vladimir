@@ -1,5 +1,5 @@
 import './index.css';
-import store from "./Redux/state";
+import store from "./Redux/reduxStore";
 import reportWebVitals from "./reportWebVitals";
 import ReactDOM from "react-dom";
 import {BrowserRouter} from "react-router-dom";
@@ -18,8 +18,11 @@ export let rerenderEntireTree = (state) => {
     );
 }
 
-rerenderEntireTree(store.state);
-store.subscribe(rerenderEntireTree);
+rerenderEntireTree(store.getState());
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderEntireTree(state)
+});
 
 
 // If you want to start measuring performance in your app, pass a function

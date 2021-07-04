@@ -1,21 +1,29 @@
 const addSettingsSms = 'ADD-SMS-SETTINGS';
 const oneSettingsSms = 'ONE-SETTINGS-POST';
 
-const settingsReducer = (state,action) => {
+let initialState = {
+    arrSettings: [
+        {smsSettings: 'sms:'},
+    ],
+    addSettingsSms: '',
+}
 
-    if (action.type === addSettingsSms) {
-        let newSettingsPost = {
-            smsSettings: state.addSettingsSms
-        }
-        state.arrSettings.push(newSettingsPost);
-        state.addSettingsSms = '';
 
-    } else if (action.type === oneSettingsSms) {
-        state.addSettingsSms = action.smsSettings;
-
+const settingsReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case addSettingsSms:
+            let newSettingsPost = {
+                smsSettings: state.addSettingsSms
+            }
+            state.arrSettings.push(newSettingsPost);
+            state.addSettingsSms = '';
+            return state;
+        case oneSettingsSms:
+            state.addSettingsSms = action.smsSettings;
+            return state;
+        default:
+            return state;
     }
-
-    return state;
 }
 
 export const addSettingsCreator = () => {
@@ -24,8 +32,8 @@ export const addSettingsCreator = () => {
     )
 }
 export const oneSettingsSmsChangeCreator = (sms) => {
-    return(
-        {type: oneSettingsSms,smsSettings: sms }
+    return (
+        {type: oneSettingsSms, smsSettings: sms}
     )
 }
 

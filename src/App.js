@@ -15,8 +15,7 @@ const App = (props) => {
         <header className={'App'}>
             <Header/>
             <NavBar
-                state={props.state.arrFriends}
-                navBarList={props.state.navBarList}/>
+                state={props.state.arrFriends}/>
             <div>
                 <Route path={'/profile'} render={() => <Profile
                     state={props.state.profilePage}
