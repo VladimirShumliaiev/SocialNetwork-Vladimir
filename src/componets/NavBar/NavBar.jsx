@@ -3,7 +3,7 @@ import NavBarShablon from "./NavBarShablon/NavBarShablon";
 import style from './NavBar.module.css'
 import {NavLink} from "react-router-dom";
 import SiteBar from "./SiteBar/SiteBar";
-import navBarList from "./NavBarList/NavBarList";
+import navBarList from "./NavBarList/navBarList";
 
 
 

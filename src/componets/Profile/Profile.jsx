@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Profile.module.css";
 import Ava from "./Ava/Ava";
-import MyPost from "./MyPsot/MyPost";
+import MyPostContainer from "./MyPsotContainer/MyPostContainer";
 
 
 const Profile = (props) => {
@@ -10,7 +10,7 @@ const Profile = (props) => {
             <Ava/>
             <div className={style.posts}>
                 <div>
-                    <MyPost state={props.state} dispatch={props.dispatch}/>
+                    <MyPostContainer state={props.state}  dispatch={props.dispatch}/>
                 </div>
             </div>
         </div>

@@ -2,21 +2,21 @@ import React from "react";
 import {addSmsDilogsActionCreator, oneChangeMesageActionCreator} from "../../../../Redux/Reducers/dilogsReducer";
 
 const ButtonTexterea = (props) => {
-    let newAddSms = React.createRef();
+    let newAddSms = props.state.dilogsPostSms;
 
     let addSms = () => {
         props.dispatch(addSmsDilogsActionCreator());
 
     }
-    let newOnChange = () => {
-        let smsDilogs = newAddSms.current.value;
+    let newOnChange = (e) => {
+        let smsDilogs = e.target.value;
         props.dispatch(oneChangeMesageActionCreator(smsDilogs));
 
     }
 
     return (
         <div>
-            <textarea ref={newAddSms} onChange={newOnChange} value={props.state.dilogsPostSms} placeholder={'Text...'}/>
+            <textarea onChange={newOnChange} value={newAddSms} placeholder={'Text...'}/>
             <button onClick={addSms}>add sms</button>
         </div>
     )

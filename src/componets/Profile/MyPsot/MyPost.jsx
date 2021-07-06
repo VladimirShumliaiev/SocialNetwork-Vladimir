@@ -2,16 +2,13 @@ import React from "react";
 import style from './MyPost.module.css'
 import Post from "../Post/Post";
 import MyAva from "../MyAva/MyAva";
-import {
-    addUserProfileActionCreator,
-    profileOnChangeActionCreator,
-} from "../../../Redux/Reducers/profileReducer";
+
 
 
 const MyPost = (props) => {
 
 
-    let newArrProfile = props.state.arrProfile.map((el) => {
+    let newArrProfile = props.post.map((el) => {
         return (
             <div>
                 <Post foto={el.foto} sms={el.sms} like={el.like}/>
@@ -19,16 +16,15 @@ const MyPost = (props) => {
         )
     })
 
-    let profileSmsPost = props.state.profileSmsPost;
+    let profileSmsPost = props.profileSmsPost;
 
     let addPost = () => {
-        props.dispatch(addUserProfileActionCreator());
-
+        props.addPost();
     }
 
     let newProfileOnChange = (e) => {
         let smsText = e.target.value;
-        props.dispatch(profileOnChangeActionCreator(smsText));
+        props.newProfileOnChange(smsText);
     }
 
     return (
