@@ -1,5 +1,5 @@
 const addSmsDilogsActionType = 'ADD-SMS-DILOGS';
-const oneChangeMesageActionType = 'ONE-CHENGE-MESAGE';
+const oneChangeMessageActionType = 'ONE-CHENGE-MESAGE';
 
 let initialState = {
     arrDilogsUsers: [
@@ -25,7 +25,7 @@ const dilogsReducer = (state = initialState, action) => {
         state.dilogsPostSms = '';
 
 
-    } else if (action.type === oneChangeMesageActionType) {
+    } else if (action.type === oneChangeMessageActionType) {
         state.dilogsPostSms = action.sms;
     }
 
@@ -39,9 +39,9 @@ export const addSmsDilogsActionCreator = () => {
         {type: addSmsDilogsActionType}
     )
 }
-export const oneChangeMesageActionCreator = (text) => {
+export const oneChangeMessageActionCreator = (text) => {
     return (
-        {type: oneChangeMesageActionType, sms: text}
+        {type: oneChangeMessageActionType, sms: text}
     )
 }
 

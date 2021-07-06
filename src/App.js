@@ -4,7 +4,7 @@ import Header from "./componets/Header/Header";
 import NavBar from "./componets/NavBar/NavBar";
 import Profile from "./componets/Profile/Profile";
 import {Route} from "react-router-dom";
-import Dilogs from "./componets/Dilogs/Dilogs";
+import DilogsContainer from "./componets/Dilogs/DilogsContainer";
 import Music from "./componets/Music/Music";
 import Settings from "./componets/Settings/Settings";
 import News from "./componets/News/News";
@@ -21,7 +21,7 @@ const App = (props) => {
                     state={props.state.profilePage}
                     dispatch={props.dispatch}/>
                 }/>
-                <Route path={'/dilogs'} render={() => <Dilogs
+                <Route path={'/dilogs'} render={() => <DilogsContainer
                     state={props.state.arrDilogs}
                     dispatch={props.dispatch}/>
                 }/>

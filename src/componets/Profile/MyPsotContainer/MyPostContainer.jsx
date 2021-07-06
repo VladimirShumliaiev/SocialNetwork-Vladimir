@@ -17,7 +17,8 @@ const MyPostContainer = (props) => {
     }
 
     return (
-        <MyPost post={props.state.arrProfile} addPost={addPost} newProfileOnChange={newProfileOnChange} profileSmsPost={props.state.profileSmsPost}/>
+        <MyPost post={props.state.arrProfile} addPost={addPost} newProfileOnChange={newProfileOnChange}
+                profileSmsPost={props.state.profileSmsPost}/>
     )
 
 
