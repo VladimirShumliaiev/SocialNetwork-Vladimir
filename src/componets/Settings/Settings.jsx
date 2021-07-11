@@ -1,26 +1,24 @@
 import React from "react";
 import style from './Settings.module.css';
 import SettingsCall from "./SettingsCall/SettingsCall";
-import {addSettingsCreator, oneSettingsSmsChangeCreator} from "../../Redux/Reducers/settingsReaducer";
 
 
 const Settings = (props) => {
-
-    let newSmsSettings = props.state.arrSettings.map((el) => {
+    let newSmsSettings = props.settingsPage.arrSettings.map((el) => {
         return (
             <SettingsCall sms={el.smsSettings}/>
         )
     })
 
-    let addSettingsSms = props.state.addSettingsSms;
+    let addSettingsSms = props.settingsPage.addSettingsSms;
 
   let onButtonClick = () => {
-        props.dispatch( addSettingsCreator());
+        props.onButtonClick();
   }
 
   let oneChangeSettings = (e) => {
         let sms = e.target.value;
-        props.dispatch(oneSettingsSmsChangeCreator(sms));
+        props.oneChangeSettings(sms);
 
   }
 

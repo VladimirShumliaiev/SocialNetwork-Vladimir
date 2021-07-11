@@ -4,13 +4,13 @@ import Ava from "./Ava/Ava";
 import MyPostContainer from "./MyPsotContainer/MyPostContainer";
 
 
-const Profile = (props) => {
+const Profile = () => {
     return (
         <div className={style.item}>
             <Ava/>
             <div className={style.posts}>
                 <div>
-                    <MyPostContainer state={props.state}  dispatch={props.dispatch}/>
+                    <MyPostContainer />
                 </div>
             </div>
         </div>

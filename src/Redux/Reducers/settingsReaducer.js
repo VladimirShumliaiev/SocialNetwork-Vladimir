@@ -11,16 +11,21 @@ let initialState = {
 
 const settingsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case addSettingsSms:
+        case addSettingsSms: {
             let newSettingsPost = {
                 smsSettings: state.addSettingsSms
             }
-            state.arrSettings.push(newSettingsPost);
-            state.addSettingsSms = '';
-            return state;
+            let stateCopy = {...state};
+            stateCopy.arrSettings = [...state.arrSettings];
+            stateCopy.arrSettings.push(newSettingsPost);
+            stateCopy.addSettingsSms = '';
+            return stateCopy;
+        }
         case oneSettingsSms:
-            state.addSettingsSms = action.smsSettings;
-            return state;
+            let stateCopy = {...state}
+            stateCopy.addSettingsSms = action.smsSettings;
+            return stateCopy;
+
         default:
             return state;
     }

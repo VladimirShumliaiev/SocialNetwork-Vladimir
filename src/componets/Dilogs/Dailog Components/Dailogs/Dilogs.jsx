@@ -6,15 +6,15 @@ import SmsDilogs from '../Sms Dilogs/SmsDilogs';
 
 const Dilogs = (props) => {
 
-    let newAddSms = props.dilogsPostSms;
+    let newAddSms = props.arrDilogs.dilogsPostSms;
 
-    let newUserDilogsList = props.arrDilogsUsers.map((el) => {
+    let newUserDilogsList = props.arrDilogs.arrDilogsUsers.map((el) => {
         return (
             <UserDilogs id={el.id} name={el.name}/>
         )
     })
 
-    let newDilogsSms = props.arrDilogsSms.map((el) => {
+    let newDilogsSms = props.arrDilogs.arrDilogsSms.map((el) => {
         return (
             <SmsDilogs sms={el.smsText}/>
         )

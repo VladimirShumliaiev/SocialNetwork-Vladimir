@@ -1,22 +1,26 @@
 import React from "react";
 import Dilogs from "./Dailog Components/Dailogs/Dilogs";
 import {addSmsDilogsActionCreator, oneChangeMessageActionCreator} from "../../Redux/Reducers/dilogsReducer";
+import {connect} from "react-redux";
 
-const DilogsContainer = (props) => {
-
-    let addSms = () => {
-        props.dispatch(addSmsDilogsActionCreator());
-
+const mapStateToProps = (state) => {
+    return {
+        arrDilogs: state.arrDilogs
     }
-    let newOnChange = (smsDilogs) => {
-        props.dispatch(oneChangeMessageActionCreator(smsDilogs));
-
-    }
-
-    return (
-  <Dilogs arrDilogsSms={props.state.arrDilogsSms} addSms={addSms} newOnChange={newOnChange} arrDilogsUsers={props.state.arrDilogsUsers} dilogsPostSms={props.state.dilogsPostSms}/>
-    )
-
 }
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addSms: () => {
+            dispatch(addSmsDilogsActionCreator());
+        },
+
+        newOnChange: (smsDilogs) => {
+            dispatch(oneChangeMessageActionCreator(smsDilogs));
+
+        }
+    }
+}
+
+const DilogsContainer = connect(mapStateToProps,mapDispatchToProps)(Dilogs);
 
 export default DilogsContainer;

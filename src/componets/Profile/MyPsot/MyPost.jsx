@@ -7,8 +7,7 @@ import MyAva from "../MyAva/MyAva";
 
 const MyPost = (props) => {
 
-
-    let newArrProfile = props.post.map((el) => {
+    let newArrProfile = props.profilePage.arrProfile.map((el) => {
         return (
             <div>
                 <Post foto={el.foto} sms={el.sms} like={el.like}/>
@@ -16,11 +15,12 @@ const MyPost = (props) => {
         )
     })
 
-    let profileSmsPost = props.profileSmsPost;
+    let profileSmsPost = props.profilePage.profileSmsPost;
 
     let addPost = () => {
         props.addPost();
     }
+
 
     let newProfileOnChange = (e) => {
         let smsText = e.target.value;

@@ -6,30 +6,21 @@ import Profile from "./componets/Profile/Profile";
 import {Route} from "react-router-dom";
 import DilogsContainer from "./componets/Dilogs/DilogsContainer";
 import Music from "./componets/Music/Music";
-import Settings from "./componets/Settings/Settings";
 import News from "./componets/News/News";
+import SettingsContainer from "./componets/Settings/SettingsContainer";
 
 
-const App = (props) => {
+const App = () => {
     return (
         <header className={'App'}>
             <Header/>
-            <NavBar
-                state={props.state.arrFriends}/>
+            <NavBar/>
             <div>
-                <Route path={'/profile'} render={() => <Profile
-                    state={props.state.profilePage}
-                    dispatch={props.dispatch}/>
-                }/>
-                <Route path={'/dilogs'} render={() => <DilogsContainer
-                    state={props.state.arrDilogs}
-                    dispatch={props.dispatch}/>
-                }/>
+                <Route path={'/profile'} render={() => <Profile/>}/>
+                <Route path={'/dilogs'} render={() => <DilogsContainer/>}/>
                 <Route path={'/music'} render={Music}/>
                 <Route path={'/news'} render={News}/>
-                <Route path={'/settings'} render={() => <Settings
-                    state={props.state.settingsPage}
-                    dispatch={props.dispatch}/>}/>
+                <Route path={'/settings'} render={() => <SettingsContainer/>}/>
             </div>
         </header>
     )

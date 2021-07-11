@@ -17,21 +17,27 @@ let initialState = {
 
 const dilogsReducer = (state = initialState, action) => {
 
-    if (action.type === addSmsDilogsActionType) {
-        let newSms = {
-            smsText: state.dilogsPostSms,
+    switch (action.type) {
+        case addSmsDilogsActionType: {
+
+            let newSms = {
+                smsText: state.dilogsPostSms,
+            }
+            let stateCopy = {...state};
+            stateCopy.arrDilogsSms = [...state.arrDilogsSms]
+            stateCopy.arrDilogsSms.push(newSms);
+            stateCopy.dilogsPostSms = '';
+            return stateCopy;
         }
-        state.arrDilogsSms.push(newSms);
-        state.dilogsPostSms = '';
+        case oneChangeMessageActionType:
+            let stateCopy = {...state};
+            stateCopy.dilogsPostSms = action.sms;
+            return stateCopy;
 
+        default :
+            return state
 
-    } else if (action.type === oneChangeMessageActionType) {
-        state.dilogsPostSms = action.sms;
     }
-
-
-    return state;
-
 }
 
 export const addSmsDilogsActionCreator = () => {

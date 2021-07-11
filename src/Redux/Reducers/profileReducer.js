@@ -29,19 +29,22 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
 
-        case addUserProfileActionType:
+        case addUserProfileActionType: {
             let newUser = {
                 foto: 'https://fb.ru/misc/i/gallery/5158/753111.jpg',
                 sms: state.profileSmsPost,
                 like: 43
             }
-            state.arrProfile.push(newUser);
-            state.profileSmsPost = '';
-            return state;
-
+            let stateCopy = {...state}
+            stateCopy.arrProfile = [...state.arrProfile]
+            stateCopy.arrProfile.push(newUser);
+            stateCopy.profileSmsPost = '';
+            return stateCopy;
+        }
         case profileOnChangeActionType:
-            state.profileSmsPost = action.sms;
-            return state
+            let stateCopy = {...state}
+            stateCopy.profileSmsPost = action.sms;
+            return stateCopy;
 
         default:
             return state;
